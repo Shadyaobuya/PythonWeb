@@ -8,3 +8,6 @@ class Student(models.Model):
     date_of_birth=models.DateField()
     nat_id=models.CharField(max_length=20)
     nationality=models.CharField(max_length=20)
+   
+
+    
