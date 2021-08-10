@@ -1,0 +1,27 @@
+{%extends 'trainer/layout.html'%}
+{%block body%}
+<section id="trainer">
+<form method="POST" enctype="multipart/form-data">
+    {%csrf_token%}
+    <div id="trainer_reg" class="shadow-lg p-3 mb-5 bg-body rounded">
+        <center><h2 id="heading">codeHive Trainer Registration</h2></center>
+        <hr>
+        {% for field in form %}
+        <div>{{ field.label_tag }} {{ field }}</div>
+        {% if form.errors %}
+            {% for error in field.errors %}
+            <p class="error-message">
+                <strong>{{ error|escape }}</strong>
+            </p>
+            {% endfor %}
+        {% endif %}
+        {% endfor %}
+        <button type="submit" class="btnRegister">Register</button>
+      </div>
+      
+</form>
+<footer class="copyright">
+    Copyright &copy;2021 AkiraChix. All rights reserved.
+</footer>
+</section>
+{%endblock%}

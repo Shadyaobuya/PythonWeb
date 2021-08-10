@@ -1,13 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>
+{%extends "layout.html"%}
+{%block body%}
+<section id="register">
 
-        </title>
-    </head>
-    <body>
-        <form method="POST">
+<center><img src="/static/images/student.png"></center>
+
+        <form id="student_registration" method="POST" class="shadow-lg p-3 mb-5 bg-body rounded" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2 id ="heading3">codeHive Registration Form </h2>
+            <hr>
+           
             {{form.as_p}}
+            <button type="submit" id="submit_form">Submit</button>
+           
         </form>
-    </body>
+   
+        
+        <footer class="copyright">
+            Copyright &copy;2021 AkiraChix. All rights reserved.
+        </footer>
+        
+        
+    </section>
+{% endblock %}
+</body>
 </html>

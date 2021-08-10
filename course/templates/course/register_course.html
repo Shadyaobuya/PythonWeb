@@ -1,0 +1,31 @@
+
+{%extends "course/layout.html"%}
+
+{%block body%}
+<section id="course-register">
+
+
+<center><img src="/static/images/student2.png"></center>
+        <form  method="POST" enctype="multipart/form-data">
+            
+            {%csrf_token%}
+          <div id="course_reg" class="shadow-lg p-3 mb-5 bg-body rounded">
+            <center><h2 id="heading">Add Course</h2></center>
+            {{form.as_p}}
+            
+            <button type="submit" class="btnAddCourse">Submit</button>
+            
+          </div>
+        </form>
+        
+   
+        
+        <footer class="copyright">
+            Copyright &copy;2021 AkiraChix. All rights reserved.
+        </footer>
+    
+    </section>
+
+{%endblock%}
+</body>
+</html>
