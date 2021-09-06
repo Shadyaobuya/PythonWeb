@@ -1,0 +1,66 @@
+{%extends 'layout.html'%}
+          
+
+{%block body%}
+<h1>{{id.first_name}} {{id.last_name}}'s Profile</h1>
+<div class="row mb-5 ml-2 mr-2"  id="row-student">
+    
+    <div class="col-sm-3 mb-4" id="card-column">
+      <div class="card" id="profile-details">
+        <img id="profile" src="{{id.image.url}}">
+        <div class="card-body">
+            <div class="modal-body">
+
+        </div>
+       <a href="{%url 'edit-profile' id=id.id%}"><i  class="fas fa-pen"></i></a>
+          <h5 class="card-title">{{id.first_name}} {{id.last_name}}</h5>
+          <h6 class="card-title">{{id.get_nationality_display}}</h5>
+          <hr>
+          <p class="card-text"><b>National id:</b> {{id.national_id}}</p>
+          <p class="card-text"><b>Admission Date:</b> {{id.admission_date}}</p>
+          <hr>
+          <h5 class="card-title">Personal Information</h5>
+          <p class="card-text"><b>Date Of Birth:</b> {{id.date_of_birth}}</p>
+          <p class="card-text"><b>Age:</b>{{id.age}}</p>
+          <p class="card-text"><b>Guardian Name: </b>{{id.guardian_name}}</p>
+          <p class="card-text"><b>Guardian Number:</b> {{id.guardian_number}}</p>
+          <a id="download_resume" href=" {{id.medical_report.url}}" download="{{id.medical_report.url}}">Download Medical Report</a>
+      <hr>
+        <i id="contact" class="fas fa-envelope"></i> {{id.email}}<br>
+        <i class="fas fa-phone-alt"></i>{{id.phone_number}}<br>
+      </p>
+     
+
+        </div>
+      </div>
+  </a>
+    </div>
+   
+  </div>
+
+<!-- Scrollable modal -->
+<!-- Button trigger modal -->
+<!-- <a href="" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <i  class="fas fa-pen"></i>
+</a> -->
+  
+  <!-- Modal -->
+  <!-- <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          {{form}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+{%endblock%}
+

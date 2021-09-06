@@ -1,0 +1,42 @@
+{%extends "layout.html"%}
+{%block body%}
+<nav id="studentnav">
+  <img id="logo" src="/static/images/logo.png">
+ 
+ 
+
+<hr id="hrlogo">
+
+<a href="{%url 'home'%}" class="sidebar-Link" >Home</a>
+<a href="{%url 'student-courses'%}" class="sidebar-Link" >Courses</a>
+<a href="{%url 'calendar'%}" class="sidebar-Link" >Events</a>
+<a href="#" class="sidebar-Link">Wallet</a>
+
+<img id="profimage" src="/static/images/personicon.png">
+</nav>
+<section id="courses">
+
+<h1 class="heading-1">My courses</h1>
+
+    <div class="row mb-5 ml-2 mr-2">
+      {%for course in courses%}
+      <div class="col-sm-6 mb-4">
+
+          <a class="card-link" href="{%url 'course-syllabus' course.id%}">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{course.course_name}}</h5>
+            <h6 class="card-title">{{course.trainer}}</h5>
+            <hr>
+        <p class="card-text">{{course.description}}</p>
+        <hr>
+        <p class="card-text">{{course.course_code}}  {{course.class_name}}
+        </p>
+          </div>
+        </div>
+    </a>
+      </div>
+      {%endfor%}
+    </div>
+</section>
+{%endblock%}

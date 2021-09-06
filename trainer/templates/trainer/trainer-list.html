@@ -1,0 +1,45 @@
+{%extends 'trainer/layout.html'%}
+{%block body%}
+{% load bootstrap4 %}       
+        
+{% bootstrap_javascript jquery='full' %} 
+<section id="trainer-list">
+
+  <div class="row mb-5 ml-2 mr-2"  id="row-trainer">
+    {%for trainer in trainers %}
+    <div class="col-sm-6 mb-4" id="card-column">
+      <div class="card">
+        <img id="profile" src="{{trainer.image.url}}">
+        <div class="card-body">
+          <a href="{%url 'delete-trainer' id=trainer.id%}"  id="delete" >
+            <i class="fas fa-trash-alt"></i>
+          </a>
+          <a id="edit" href="{%url 'edit-trainer' id=trainer.id%}">
+            <i  class="fas fa-pen"></i>
+          </a>
+          <h5 class="card-title">{{trainer.first_name}} {{trainer.last_name}}</h5>
+          <h6 class="card-title">{{trainer.company_name}}</h5>
+          <hr>
+      <p class="card-text">{{trainer.course_name}}</p>
+      <hr>
+        <i id="contact" class="fas fa-envelope"></i> {{trainer.email}}<br>
+        <i class="fas fa-phone-alt"></i>{{trainer.phone_number}}<br>
+        <a id="download_resume" href=" {{trainer.resume.url}}" download="{{trainer.resume.url}}">Download Resume</a>
+
+      </p>
+      <p><a href="{%url 'trainer-profile' trainer.id%}">View Profile</a></p>
+      
+        </div>  
+      </div>
+    </div>
+    
+    {%endfor%}
+
+  </div>
+  
+  <footer class="copyright">
+    Copyright &copy;2021 AkiraChix. All rights reserved.
+</footer>
+</section>
+{%endblock%}
+

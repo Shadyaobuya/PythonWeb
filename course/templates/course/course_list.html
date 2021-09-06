@@ -1,0 +1,37 @@
+{%extends "course/layout.html"%}
+
+{%block body%}
+<section id="courses">
+
+<h1 class="heading-1">All Courses</h1>
+
+    <div class="row mb-5 ml-2 mr-2">
+      {%for course in courses%}
+      <div class="col-sm-6 mb-4">
+        <a class="card-link" href="{%url 'course-syllabus' course.id%}">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{course.course_name}}</h5>
+
+            <a id="edit" href="{%url 'edit-course' id=course.id%}">
+              <i  class="fas fa-pen"></i>
+            </a>
+            <h6 class="card-title">{{course.trainer}}</h5>
+            <hr>
+        <p class="card-text">{{course.description}}</p>
+        <hr>
+        <p class="card-text">{{course.course_code}}  {{course.class_name}}
+        </p>
+          </div>
+        </div>
+    </a>
+      </div>
+      {%endfor%}
+    </div>
+    <footer class="copyright">
+      Copyright &copy;2021 AkiraChix. All rights reserved.
+  </footer>
+</section>
+{%endblock%}
+
+

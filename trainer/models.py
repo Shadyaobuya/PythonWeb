@@ -1,6 +1,7 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 
+
 # Create your models here.
 
 class Trainer(models.Model):
@@ -16,9 +17,9 @@ class Trainer(models.Model):
     company_name=models.CharField(max_length=30,null=True)
     city=models.CharField(max_length=20,null=True)
     GENDER=(
-        ('0','Female'),
-        ('1','Male'),
-        ('3','Other'),
+        ('Female','Female'),
+        ('Male','Male'),
+        ('Other','Other'),
     )
     gender = models.CharField(max_length=11,choices=GENDER,null=True,default="other")
 

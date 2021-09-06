@@ -39,10 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'phonenumber_field',
+    'bootstrap_datepicker_plus',
+    'bootstrap4',
     'student',
     'course',
     'trainer',
     'event',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +78,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'SchoolSystem.wsgi.application'
 
-
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 

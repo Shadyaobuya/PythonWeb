@@ -1,0 +1,20 @@
+{%extends 'event/layout.html'%}
+          
+
+{%block body%}
+<section id="calendar">
+<h2 class="heading">Upcoming Events</h2>
+
+
+    <div class="clearfix">
+      <hr id="event-hr">
+      <a class="btn btn-outline-dark left" href="{% url 'calendar' %}?{{ prev_month }}"> Previous Month </a>
+      <a class="btn btn-outline-primary addEvent" href="{%url 'add-event'%}">Schedule Event</a>
+      <a class="btn btn-outline-dark right" href="{% url 'calendar' %}?{{ next_month }}"> Next Month </a>
+   
+    </div>
+    {{ calendar }}
+ 
+
+</section>
+{%endblock%} 

@@ -1,0 +1,29 @@
+{%extends "layout.html"%}
+
+{%block body%}
+<form id="student_registration" method="POST" class="shadow-lg p-3 mb-5 bg-body rounded" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2 id ="heading3">codeHive Registration Form </h2>
+    <hr>
+    {% for field in form %}
+    <div>{{ field.label_tag }} {{ field }}</div>
+    {% if form.errors %}
+    {% for error in field.errors %}
+    <p class="error-message">
+        <strong>{{ error|escape }}</strong>
+    </p>
+    {% endfor %}
+    {% endif %}
+    {% endfor %}
+
+    <button type="submit" id="submit_form">Submit</button>
+   
+</form>
+
+
+<footer class="copyright">
+    Copyright &copy;2021 AkiraChix. All rights reserved.
+</footer>
+
+
+{%endblock%}
