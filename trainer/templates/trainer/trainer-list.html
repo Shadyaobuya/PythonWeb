@@ -11,23 +11,19 @@
       <div class="card">
         <img id="profile" src="{{trainer.image.url}}">
         <div class="card-body">
-          <a href="{%url 'delete-trainer' id=trainer.id%}"  id="delete" >
+          <a href="{%url 'trainer:delete-trainer' id=trainer.id%}"  id="delete" >
             <i class="fas fa-trash-alt"></i>
           </a>
-          <a id="edit" href="{%url 'edit-trainer' id=trainer.id%}">
+          <a id="edit" href="{%url 'trainer:edit-trainer' id=trainer.id%}">
             <i  class="fas fa-pen"></i>
           </a>
           <h5 class="card-title">{{trainer.first_name}} {{trainer.last_name}}</h5>
           <h6 class="card-title">{{trainer.company_name}}</h5>
           <hr>
-      <p class="card-text">{{trainer.course_name}}</p>
+      <p class="card-text">{{trainer.bio}}</p>
       <hr>
-        <i id="contact" class="fas fa-envelope"></i> {{trainer.email}}<br>
-        <i class="fas fa-phone-alt"></i>{{trainer.phone_number}}<br>
-        <a id="download_resume" href=" {{trainer.resume.url}}" download="{{trainer.resume.url}}">Download Resume</a>
 
-      </p>
-      <p><a href="{%url 'trainer-profile' trainer.id%}">View Profile</a></p>
+      <p><a id="download_resume" href="{%url 'trainer:trainer-profile' trainer.id%}">View Profile</a></p>
       
         </div>  
       </div>

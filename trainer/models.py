@@ -8,6 +8,7 @@ class Trainer(models.Model):
     first_name=models.CharField(max_length=30,null=True)
     last_name=models.CharField(max_length=30,null=True)
     national_id=models.CharField(max_length=30,null=True)
+    bio=models.TextField(null=True)
     email=models.EmailField(max_length=30,null=True)
     phone_number=PhoneNumberField(null=True)
     image=models.ImageField( upload_to="trainer_images/", null=True)

@@ -5,58 +5,7 @@
 {% bootstrap_javascript jquery='full' %}  
 {{ form.media }}  
 
-
-
-
 <section id="register">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i  class="fas fa-user-graduate "></i>Student
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" id="dropdown">
-                      <li><a class="dropdown-item" href="{%url 'register_student'%}">Register Student</a></li>
-                      <li><a class="dropdown-item" href="{%url 'student-list'%}"> View Students</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    
-                    <a class="nav-link " href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-chalkboard-teacher "></i>Trainer
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" id="dropdown">
-                      <li><a class="dropdown-item" href="{%url 'register-trainer'%}">Register Trainer</a></li>
-                      <li><a class="dropdown-item" href="{%url 'trainer-list'%}"> View Trainers</a></li>
-                    </ul>
-                  </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i  class="fas fa-book-open "></i>Courses
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" id="dropdown">
-                  <li><a class="dropdown-item" href="{%url 'register-course'%}">Register Course</a></li>
-                  <li><a class="dropdown-item" href="{%url 'course_list'%}">View Course</a></li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link " href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i  class="fas fa-calendar-alt "></i> Calendar
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" id="dropdown">
-                    <li><a class="dropdown-item" href="{%url 'add-event'%}"> Add Event</a></li>
-                    <li><a class="dropdown-item" href="{%url 'calendar'%}"> View Event</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>  
 
 <center><img src="/static/images/student.png"></center>
 

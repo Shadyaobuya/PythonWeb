@@ -3,31 +3,20 @@
 
 {%block body%}
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Home
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" id="dropdown">
-            <li><a class="dropdown-item" href="{%url 'register-course'%}">Register Course</a></li>
-            <li><a class="dropdown-item" href="{%url 'course_list'%}">View Course</a></li>
-            <li><a class="dropdown-item" href="{%url 'add-event'%}"> Add Event</a></li>
-            <li><a class="dropdown-item" href="{%url 'calendar'%}"> View Event</a></li>
-            <li><a class="dropdown-item" href="{%url 'trainer-list'%}"> View Trainers</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<h2 id ="heading3">codeHive Class Of 2021 </h2>
 
+<form id="search-form" action="{% url 'student:search-student'%}">
+  <input id="search" type="search" placeholder="Search By First Name"  name="search">
+  <button  id="search-icon" class="btn" type="submit">
+    <i class="fas fa-search"></i>
+  </button>
+</form>
+{%if message%}
+<h6>{{message}}</h6>
+{%endif%}
+{%if results%}
+<h5 class="results">Found {{results}} Student</h5>
+{%endif%}
 
   <div class="row mb-5 ml-2 mr-2"  id="row-student">
     {%for student in students %}
@@ -35,10 +24,13 @@
       <div class="card" id="card-profile">
         <img id="profile" src="{{student.image.url}}">
         <div class="card-body">
+          <a class="icon-link" href="{%url 'student:delete-profile' student.id%}">
+            <i class="fas fa-trash-alt"></i>
+          </a>
           <h5 class="card-title">{{student.first_name}} {{student.last_name}}</h5>
           <h6 class="card-title">{{student.get_nationality_display}}</h5>
-            <a class="profile-link" href="{%url 'student-profile' student.id%}">View Profile</a>
-            <a class="profile-link" href="{%url 'delete-profile' student.id%}">Delete Profile</a>
+            <a id="profile-link" href="{%url 'student:student-profile' student.id%}">View Profile</a>
+  
           <hr>
       </p>
         </div>
@@ -47,5 +39,8 @@
     </div>
     {%endfor%}
   </div>
+  <footer class="copyright">
+    Copyright &copy;2021 AkiraChix. All rights reserved.
+</footer>
 
 {%endblock%}

@@ -10,20 +10,18 @@
 
 <style>
   body{
-    background-color: antiquewhite;
+    background-color: rgb(243, 236, 243);
+
   }
 
-    #add-event{
-        background-color:antiquewhite;
-      
-    }
     #event-form{
         margin-left: 32%;
         width: 100%;
         padding-left: 1%;
         padding-top: 5%;
-        background-color: white;
+        background-color: rgb(253, 251, 251);
         padding: 5%;
+        border: 1px solid rgba(0, 0, 0, 0.219);
 
       
     }
@@ -60,6 +58,9 @@
             color: rgb(214, 213, 213);
             font-size: 1.3vw;
             height: 10vh;
+            bottom: 0%;
+            width: 100%;
+            position: fixed;
            
     }
 
@@ -87,23 +88,25 @@
   width: 60%;
   margin-left: 20%;
   font-size: 13px;
+  margin-bottom: 5%;
+  padding: 0%;
   
 }
-
 .calendar tr, .calendar td {
-  border: 1px solid gray;
+  border: 1px solid #67F6E8;
 }
 
 .calendar th {
   padding: 10px;
   text-align: center;
   font-size: 18px;
-  background-color: whitesmoke;
+  background-color: #161C27;
+  color: white;
 }
 #event-hr{
   margin-left: 20%;
   margin-right: 20%;
-  border: 1px solid black;
+  border: 1px solid #67F6E8;
   background-color: black;
   
 
@@ -113,12 +116,13 @@
   width: 200px;
   height: 50px;
   padding: 20px 0px 0px 5px;
-  background-color: whitesmoke;
+  background-color: #161C27;
+  color: white;
 }
 .calendar td:hover{
       box-shadow: 10px 10px 5px gray;
       cursor: pointer;
-      background-color: #6d6f70;
+      background-color: #545555;
       
     }
 
@@ -141,9 +145,12 @@ a {
 
 .clearfix {
   margin: 15px;
+  background-color: #161C27;
+  margin-left:20% ;
+  margin-right: 20%;
+  padding-bottom: 2%;
+
 }
-
-
 
 #profimage{
     margin-top: 110%;
@@ -159,36 +166,97 @@ a {
     width: 20%;
     margin-left: 5%;
 }
-
+#dropdown{
+            background-color: #343A40;
+           
+        }
+      
 #calendar{
-  
-  background-color:antiquewhite;
+  background-image:url("/static/images/calendar1.jpg");
+  background-color: rgb(243, 236, 243);
+  height: 100%;
+  background-size: cover;
+
  
 }
 .heading{
-  text-align: center;
+  margin-left: 10%;
   margin-top: 0%;
   margin-bottom: 2%;
   padding-top: 3%;
+  color: blueviolet;
 }
 .left {
   float: left;
-  margin-left: 20%;
+  margin-left: 3%;
+  color: white;
+  background-color: transparent;
+  border: 1px solid #67F6E8;
+}
+.left:hover, .right:hover{
+  background-color: #67F6E8;
+  color: black;
 }
 
 .right {
   float: right;
-  margin-right: 20%;
+  margin-right: 3%;
+  color: white;
+  background-color: transparent;
+  border: 1px solid #67F6E8;
 }
 .addEvent{
-  margin-left: 23%;
+  margin-left: 45%;
 }
+.all-events{
+  float: right;
+  margin-right: 3%;
+  margin-top: 3%;
+  color: black;
+  background-color: transparent;
+  border: 1px solid #000000;
+
+}
+
 .nav-link{
       font-size: 20px;
    }
 .nav-link:hover{
   color: white;
   }
+
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 80%;
+  border: 1px solid #67F6E8;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #161c2700;
+  margin-bottom: 10%;
+  
+}
+
+.th, .td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #161C27;
+  color: #67F6E8;
+}
+#event-list{
+background-color: rgb(243, 236, 243);
+}
+#edit-pen{
+  color: #67F6E8;
+}
+#logo{
+  width: 40px;
+  height: 40px;
+}
+
 </style>
 </head>
 <body>
@@ -199,41 +267,43 @@ a {
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
         <ul class="navbar-nav">
+          <a href="{%url 'core:home-page'%}" ><img id="logo" src="/static/images/codehivelogo.png"></a>
+
             <li class="nav-item dropdown">
                 <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i id="home-icon" class="fas fa-user-graduate "></i>Student
+            Student
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" id="dropdown">
-                  <li><a class="dropdown-item" href="{%url 'register_student'%}">Register Student</a></li>
-                  <li><a class="dropdown-item" href="{%url 'student-list'%}"> View Students</a></li>
+                  <li><a class="dropdown-item" href="{%url 'student:register_student'%}">Register Student</a></li>
+                  <li><a class="dropdown-item" href="{%url 'student:student-list'%}"> View Students</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
                 
                 <a class="nav-link " href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-chalkboard-teacher "></i>Trainer
+                    Trainer
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" id="dropdown">
-                  <li><a class="dropdown-item" href="{%url 'register-trainer'%}">Register Trainer</a></li>
-                  <li><a class="dropdown-item" href="{%url 'trainer-list'%}"> View Trainers</a></li>
+                  <li><a class="dropdown-item" href="{%url 'trainer:register-trainer'%}">Register Trainer</a></li>
+                  <li><a class="dropdown-item" href="{%url 'trainer:trainer-list'%}"> View Trainers</a></li>
                 </ul>
               </li>
           <li class="nav-item dropdown">
             <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i  class="fas fa-book-open "></i>Courses
+                Courses
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" id="dropdown">
-              <li><a class="dropdown-item" href="{%url 'register-course'%}">Register Course</a></li>
-              <li><a class="dropdown-item" href="{%url 'course_list'%}">View Course</a></li>
+              <li><a class="dropdown-item" href="{%url 'course:register-course'%}">Register Course</a></li>
+              <li><a class="dropdown-item" href="{%url 'course:course_list'%}">View Course</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link " href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i  class="fas fa-calendar-alt "></i> Calendar
+              Calendar
             </a>
             <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" id="dropdown">
-                <li><a class="dropdown-item" href="{%url 'add-event'%}"> Add Event</a></li>
-                <li><a class="dropdown-item" href="{%url 'calendar'%}"> View Event</a></li>
+                <li><a class="dropdown-item" href="{%url 'event:add-event'%}"> Add Event</a></li>
+                <li><a class="dropdown-item" href="{%url 'event:calendar'%}"> View Event</a></li>
             </ul>
           </li>
         </ul>

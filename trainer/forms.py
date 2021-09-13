@@ -23,6 +23,7 @@ class RegisterTrainerForm(forms.ModelForm):
             'gender': forms.Select(attrs={'class': 'form-select','style':'width:88%'}), 
             'course_name': forms.TextInput( attrs={'class': 'form-control','style':'width:88%',}),
             'city': forms.TextInput( attrs={'class': 'form-control','style':'width:88%'}),
+            'bio':forms.Textarea(attrs={'class': 'form-control','style':'width:88%'})
         }
         labels={
             'first_name':'First Name',

@@ -1,0 +1,77 @@
+{%extends 'event/layout.html'%}
+          
+
+{%block body%}
+{% load bootstrap4 %}       
+{% bootstrap_css %}         
+{% bootstrap_javascript jquery='full' %}  
+{{ form.media }}  
+
+
+<section id="add-event">
+  <center><img src="/static/images/events.png"></center>
+<form  method="POST">
+    {%csrf_token%}
+    
+   <div id="event-form">
+    <center><h2 id="heading">Edit {{event.event_name}}Event</h2></center>
+    <hr>
+    <div class="form-group">
+        {{ form.event_name }}
+        
+    </div>
+    
+      <div class="form-group ">
+        {{ form.venue }}
+      
+    </div>
+    <div class="form-group">
+      {{ form.description }} 
+     </div>
+     <div class="form-group">
+        {{ form.link }}
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        {{ form.start_time}} 
+
+      </div>
+
+      <div class="form-group col-md-6">
+      
+        {{ form.end_time}}
+      </div>
+    </div>
+<button type="button" class="btnRegister" data-toggle="modal" data-target="#exampleModal">Save Changes to Calendar</button>
+    <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Event</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        You edited one event {{ form.event_name.value|default_if_none:"" }}
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+  </form>
+  <footer class="copyright">
+    Copyright &copy;2021 AkiraChix. All rights reserved.
+</footer>
+</section>
+{%endblock%}
+
+
+

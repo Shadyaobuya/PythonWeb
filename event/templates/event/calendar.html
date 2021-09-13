@@ -1,0 +1,24 @@
+{%extends 'event/layout.html'%}
+          
+
+{%block body%}
+<section id="calendar">
+<a class="btn btn-outline-dark all-events" href="{% url 'event:event-list' %} "> View All Events</a>
+
+<center><h1 class="heading">Upcoming Events</h1></center>
+
+
+    <div class="clearfix">
+      <hr id="event-hr">
+      <a class="btn btn-outline-dark left" href="{% url 'event:calendar' %}?{{ prev_month }}"> Previous Month </a>
+      <a class="btn btn-outline-info addEvent" href="{%url 'event:add-event'%}">Schedule Event</a>
+      <a class="btn btn-outline-dark right" href="{% url 'event:calendar' %}?{{ next_month }}"> Next Month </a>
+   
+    </div>
+    {{ calendar }}
+ 
+    <footer class="copyright">
+      Copyright &copy;2021 AkiraChix. All rights reserved.
+  </footer>
+</section>
+{%endblock%} 

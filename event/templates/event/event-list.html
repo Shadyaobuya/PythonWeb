@@ -1,20 +1,42 @@
 {%extends 'event/layout.html'%}
-          
 
 {%block body%}
-<section id="calendar">
-<h2 class="heading">Upcoming Events</h2>
+<section id="event-list">
+<center><img src="/static/images/event.png"></center>
+
+<table class="table">
+    <tr class="tr" >
+        <th class="tlist"></th>
+        <th class="tlist">Event Name</th>
+        <th class="tlist">Description</th>
+        <th class="tlist">Start Time</th>
+        <th class="tlist">End Time</th>
+        <th class="tlist">Venue</th>
+
+</tr>
+<tr class="tr" >
+    
+    {% for event in event%}
+    <td><a id="edit-pen" href="{%url 'event:edit-event' id=event.id%}" data-toggle="tooltip" data-placement="top" title="Edit Event">
+        <i  class="fas fa-pen"></i>
+    </a>
+    </td>
+    <!-- <td class="tlist"><input class="form-check-input" name="checks" type="checkbox" value="{{event.id}}"></td> -->
+    <td>{{event.event_name}}</td>
+    <td>{{event.description}}</td>
+    <td>{{event.start_time}}</td>
+    <td>{{event.end_time}}</td>
+    <td>{{event.venue}}</td>
+
+</tr>
 
 
-    <div class="clearfix">
-      <hr id="event-hr">
-      <a class="btn btn-outline-dark left" href="{% url 'calendar' %}?{{ prev_month }}"> Previous Month </a>
-      <a class="btn btn-outline-primary addEvent" href="{%url 'add-event'%}">Schedule Event</a>
-      <a class="btn btn-outline-dark right" href="{% url 'calendar' %}?{{ next_month }}"> Next Month </a>
-   
-    </div>
-    {{ calendar }}
- 
+{%endfor%}
 
+</table>
+<footer class="copyright">
+    Copyright &copy;2021 AkiraChix. All rights reserved.
+</footer>
 </section>
-{%endblock%} 
+
+{%endblock%}

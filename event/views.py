@@ -1,6 +1,6 @@
 from calendar import calendar
 from django.shortcuts import redirect, render
-from django.urls import reverse_lazy
+from django.urls import reverse
 from .forms import AddEventForm
 from .models import *
 from .utils import Calendar
@@ -15,7 +15,7 @@ def add_event(request):
         form=AddEventForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('calendar')
+            return redirect('event:calendar')
         else:
             print(form.errors)
     else:
@@ -27,7 +27,7 @@ def add_event(request):
 
 class CalendarView(ListView):
     model =AddEvent
-    template_name = 'event/event-list.html'
+    template_name = 'event/calendar.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -62,3 +62,24 @@ def next_month(d):
     next_month = last + timedelta(days=1)
     month = 'month=' + str(next_month.year) + '-' + str(next_month.month)
     return month
+
+def edit_event(request,id):
+    event=AddEvent.objects.get(id=id)
+    if request.method=="POST":
+        form=AddEventForm(request.POST,instance=event)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('event:event-list'))
+    else:
+        form=AddEventForm(instance=event)
+        return render (request,'event/edit_event.html',{'form':form})
+            
+def event_list(request):
+    event=AddEvent.objects.all()
+    return render(request,'event/event-list.html',{'event':event})       
+
+def delete_event(request,id):
+    event=AddEvent.objects.get(id=id)
+    event.delete()
+    return redirect(reverse('event-list'))  
+

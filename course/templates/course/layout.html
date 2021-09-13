@@ -12,9 +12,10 @@
     <style>
         body{
             margin: 0%;
+            background-color: rgb(243, 236, 243);
         }
         #course-register{
-            background-color: rgb(243, 236, 243);;
+            background-color: rgb(243, 236, 243);
         }
 
         #course_reg{
@@ -137,7 +138,8 @@
                 text-align: center;
             }
             #courses{
-               background-color: antiquewhite;
+                background-color: rgb(243, 236, 243);
+
                 
             }
             .heading-1{
@@ -196,14 +198,22 @@
             #edit:hover{
             color: white;
             }
-            #delete{
+            .iconcourse{
             text-decoration: none;
             color: #67F6E8;
             background-color: transparent;
             border: transparent;
             }
-            #delete:hover{
+            .iconcourse:hover{
             color: white;
+            }
+            #course-profile{
+                margin-left: 90%;
+
+            }
+            #logo{
+                width: 40px;
+                height: 40px;
             }
             
     </style>
@@ -217,40 +227,42 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
             <ul class="navbar-nav">
+                <a href="{%url 'core:home-page'%}" ><img id="logo" src="/static/images/codehivelogo.png"></a>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i id="home-icon" class="fas fa-user-graduate "></i>Student
+                       Student
                     </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" id="dropdown">
-                      <li><a class="dropdown-item" href="{%url 'register_student'%}">Register Student</a></li>
-                      <li><a class="dropdown-item" href="{%url 'student-list'%}"> View Students</a></li>
+                      <li><a class="dropdown-item" href="{%url 'student:register_student'%}">Register Student</a></li>
+                      <li><a class="dropdown-item" href="{%url 'student:student-list'%}"> View Students</a></li>
                     </ul>
                   </li>
                   <li class="nav-item dropdown">
                     
                     <a class="nav-link " href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-chalkboard-teacher "></i>Trainer
+                        Trainer
+                        </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" id="dropdown">
-                      <li><a class="dropdown-item" href="{%url 'register-trainer'%}">Register Trainer</a></li>
-                      <li><a class="dropdown-item" href="{%url 'trainer-list'%}"> View Trainers</a></li>
+                      <li><a class="dropdown-item" href="{%url 'trainer:register-trainer'%}">Register Trainer</a></li>
+                      <li><a class="dropdown-item" href="{%url 'trainer:trainer-list'%}"> View Trainers</a></li>
                     </ul>
                   </li>
               <li class="nav-item dropdown">
                 <a class="nav-link" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i  class="fas fa-book-open "></i>Courses
+                    Courses
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" id="dropdown">
-                  <li><a class="dropdown-item" href="{%url 'register-course'%}">Register Course</a></li>
-                  <li><a class="dropdown-item" href="{%url 'course_list'%}">View Course</a></li>
+                  <li><a class="dropdown-item" href="{%url 'course:register-course'%}">Register Course</a></li>
+                  <li><a class="dropdown-item" href="{%url 'course:course_list'%}">View Course</a></li>
                 </ul>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link " href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i  class="fas fa-calendar-alt "></i> Calendar
+                     Calendar
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink" id="dropdown">
-                    <li><a class="dropdown-item" href="{%url 'add-event'%}"> Add Event</a></li>
-                    <li><a class="dropdown-item" href="{%url 'calendar'%}"> View Event</a></li>
+                    <li><a class="dropdown-item" href="{%url 'event:add-event'%}"> Add Event</a></li>
+                    <li><a class="dropdown-item" href="{%url 'event:calendar'%}"> View Event</a></li>
                 </ul>
               </li>
             </ul>

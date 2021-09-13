@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'trainer',
     'event',
     'core',
+    'api',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +78,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'SchoolSystem.wsgi.application'
 
 BOOTSTRAP4 = {
@@ -86,8 +89,12 @@ BOOTSTRAP4 = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'SchoolSystem',
+        'USER': 'Shadya',
+        'PASSWORD': 'Shadya$$04',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

@@ -4,28 +4,41 @@
 <section id="courses">
 
 <h1 class="heading-1">All Courses</h1>
+<center><img src="/static/images/courseImage.png"></center>
 
-    <div class="row mb-5 ml-2 mr-2">
-      {%for course in courses%}
-      <div class="col-sm-6 mb-4">
-        <a class="card-link" href="{%url 'course-syllabus' course.id%}">
-        <div class="card">
+<div class="row mb-5 ml-2 mr-2">
+  {%for course in courses%}
+  <div class="col-sm-6 mb-4">
+    <a href="{%url 'course:course-syllabus' course.id%}">
+    <div class="card">
+      
           <div class="card-body">
-            <h5 class="card-title">{{course.course_name}}</h5>
 
-            <a id="edit" href="{%url 'edit-course' id=course.id%}">
+            <a href="{%url 'course:course-syllabus' course.id%}"  class="tooltip-test iconcourse" title="View Course Syllabus" id="delete" >
+              <i class="fas fa-list-alt"></i>            
+            </a> 
+
+            <a href="{%url 'course:edit-course' id=course.id%}"  class="tooltip-test iconcourse" id="course-profile" title="Edit Course" >
               <i  class="fas fa-pen"></i>
             </a>
+
+    
+            <h5 class="card-title">{{course.course_name}}</h5>
             <h6 class="card-title">{{course.trainer}}</h5>
             <hr>
         <p class="card-text">{{course.description}}</p>
         <hr>
         <p class="card-text">{{course.course_code}}  {{course.class_name}}
+          <a href="{%url 'course:delete-course' id=course.id%}"  class="tooltip-test iconcourse" id="course-profile" title="Delete Course" >
+            <i class="fas fa-trash-alt"></i>
+          </a>
+
         </p>
           </div>
         </div>
-    </a>
+    
       </div>
+    </a>
       {%endfor%}
     </div>
     <footer class="copyright">

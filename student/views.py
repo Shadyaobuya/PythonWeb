@@ -1,7 +1,11 @@
 from student.models import Student
 from django.shortcuts import redirect, render
 from .forms import StudentRegistrationForm
+from django.urls import reverse
 from course.models import Course,CourseSyllabus
+from django.views.generic.list import ListView
+from django.db.models import Q
+
 
 
 # Create your views here.
@@ -11,7 +15,7 @@ def register_student(request):
         form=StudentRegistrationForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('register_student')
+            return redirect('student:register_student')
         else:
             print(form.errors)
     else:
@@ -43,7 +47,7 @@ def edit_student(request, id):
         form=StudentRegistrationForm(request.POST, instance=student)
         if form.is_valid():
             form.save()
-            return redirect("student-profile", id=student.id)
+            return redirect("student:student-profile", id=student.id)
     else:
         form= StudentRegistrationForm(instance=student)
         return render(request,"edit_profile.html", {"form":form})
@@ -52,12 +56,17 @@ def edit_student(request, id):
 def delete_student(request,id):
     student=Student.objects.get(id=id)
     student.delete()
-    return redirect('student-list')
+    return redirect('student:student-list')
 
 
+def search_student(request):
+    search_post = request.GET.get('search')
+    if search_post:
+        students = Student.objects.filter(Q(first_name__icontains=search_post))
+        results=students.count()
+    else:
+        students = Student.objects.all()
+        message="Looks like the student doesn't exist. Try searching using the first name"
+        return render (request,'student_list.html',{'students':students,'message':message})
 
-
-
-
-
-
+    return render (request,'student_list.html',{'students':students,'results':results})
