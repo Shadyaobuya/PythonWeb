@@ -6,7 +6,12 @@
   <center><h1>{{trainer.first_name}}'s Profile</h1></center>
     <div class="col-sm-6 mb-4" id="card-column" >
       <div class="card" id="trainer-prof">
+        {%if trainer.image%}
         <img id="profile" src="{{trainer.image.url}}">
+        {%else%}
+        <img src="/static/images/user.png">
+        {%endif%}
+        
         <div class="card-body">
           <a id="edit" href="{%url 'trainer:edit-trainer' id=trainer.id%}">
               <i  class="fas fa-pen"></i>
@@ -22,8 +27,11 @@
         <i id="contact" class="fas fa-phone-alt"></i>{{trainer.phone_number}}<br>
 
       </p>
-     <p> <a id="download_resume" href=" {{trainer.resume.url}}" download="{{trainer.resume.url}}">Download Resume</a></p>
 
+     <p> 
+      {%if trainer.image%}
+       <a id="download_resume" href=" {{trainer.resume.url}}" download="{{trainer.resume.url}}">Download Resume</a></p>
+      {%endif%}
         </div>
       </div>
   </a>

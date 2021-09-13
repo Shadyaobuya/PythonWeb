@@ -8,7 +8,11 @@
     
     <div class="col-sm-3 mb-4" id="card-column">
       <div class="card" id="profile-details">
+        {%if id.image%}
         <img id="profile" src="{{id.image.url}}">
+        {%else%}
+        <img id="profile" src="/static/images/user.png">
+        {%endif%}
         <div class="card-body">
             <div class="modal-body">
 
@@ -25,7 +29,9 @@
           <p class="card-text"><b>Age:</b>{{id.age}}</p>
           <p class="card-text"><b>Guardian Name: </b>{{id.guardian_name}}</p>
           <p class="card-text"><b>Guardian Number:</b> {{id.guardian_number}}</p>
+          {%if id.medical_report%}
           <a id="download_resume" href=" {{id.medical_report.url}}" download="{{id.medical_report.url}}">Download Medical Report</a>
+          {%endif%}
       <hr>
         <i id="contact" class="fas fa-envelope"></i> {{id.email}}<br>
         <i id="contact"class="fas fa-phone-alt"></i>{{id.phone_number}}<br>

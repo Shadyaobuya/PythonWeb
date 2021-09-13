@@ -9,7 +9,11 @@
     {%for trainer in trainers %}
     <div class="col-sm-6 mb-4" id="card-column">
       <div class="card">
+        {%if trainer.image%}
         <img id="profile" src="{{trainer.image.url}}">
+        {%else%}
+        <img src="/static/images/user.png">
+        {%endif%}
         <div class="card-body">
           <a href="{%url 'trainer:delete-trainer' id=trainer.id%}"  id="delete" >
             <i class="fas fa-trash-alt"></i>

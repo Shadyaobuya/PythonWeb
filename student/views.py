@@ -26,8 +26,6 @@ def student_list(request):
     students=Student.objects.all()
     return render (request,'student_list.html',{'students':students})
 
-def student_home(request):
-    return render(request,"homepage.html")
 
 def student_courses(request):
     courses=Course.objects.all()
