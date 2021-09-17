@@ -1,9 +1,9 @@
 {%extends 'trainer/layout.html'%}
 {%block body%}
 <section id="trainer-list">
+  <center><h1><a id="link-back" href="{%url 'trainer:trainer-list'%}"><i class="fas fa-arrow-left"></i></a>  {{trainer.first_name}}'s Profile</h1></center>
 
   <div class="row mb-5 ml-2 mr-2"  id="row-trainer">
-  <center><h1>{{trainer.first_name}}'s Profile</h1></center>
     <div class="col-sm-6 mb-4" id="card-column" >
       <div class="card" id="trainer-prof">
         {%if trainer.image%}

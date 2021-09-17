@@ -4,7 +4,8 @@
         
 {% bootstrap_javascript jquery='full' %} 
 <section id="trainer-list">
-
+<center><h1 style="color: purple;">codeHive Trainers 2021</h1></center>
+<center><img src="/static/images/trainer.png"></center>
   <div class="row mb-5 ml-2 mr-2"  id="row-trainer">
     {%for trainer in trainers %}
     <div class="col-sm-6 mb-4" id="card-column">
@@ -12,7 +13,7 @@
         {%if trainer.image%}
         <img id="profile" src="{{trainer.image.url}}">
         {%else%}
-        <img src="/static/images/user.png">
+        <img  id="profile" src="/static/images/user.png">
         {%endif%}
         <div class="card-body">
           <a href="{%url 'trainer:delete-trainer' id=trainer.id%}"  id="delete" >

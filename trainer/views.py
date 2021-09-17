@@ -10,7 +10,7 @@ def register_trainer(request):
         form=RegisterTrainerForm(request.POST,request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('register-trainer')
+            return redirect('trainer:register-trainer')
         else:
             print(form.errors)
     else:
@@ -27,7 +27,7 @@ def edit_trainer(request,id):
         form=RegisterTrainerForm(request.POST,instance=trainer)
         if form.is_valid():
             form.save()
-            return redirect(reverse("trainer-list"), id=trainer.id)
+            return redirect(reverse("trainer:trainer-list"), id=trainer.id)
         else:
             print(form.errors)
     else:

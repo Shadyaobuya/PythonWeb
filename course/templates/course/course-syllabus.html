@@ -1,21 +1,23 @@
 {%extends "layout.html"%}
 {%block body%}
 
-<section id="courses">
+<section >
 
-   <h1> <a id="icon" href="{%url 'course_list'%}">
+   <center><img src="/static/images/courseImage.png"></center>
+   <h1> <a id="icon" href="{%url 'course:course_list'%}">
       <i class="fas fa-arrow-left fa-sm"></i></a>
         {{course.course.course_name}}
-      </h1>
+      </h1> 
+<div class="row mb-5 mr-20">
+  <div class="col-sm-12 mb-4">
 
-
-   <div class="course-syllabus">            
-      <a id="edit" href="{%url 'edit-course' id=course.id%}">
-      <i  class="fas fa-pen"></i>
-    </a>
-      {{course.topic}}
-      
-   </div>
+      <div class="card" id="course-syllabus-card" style="color: white;">
+         {{course.topic}}
+            </div>
+          </div>
+        </div>
+    
+  
 
 </section>
 {%endblock%}

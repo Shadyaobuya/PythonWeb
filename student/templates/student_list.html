@@ -2,7 +2,7 @@
           
 
 {%block body%}
-
+<section id="students-list">
 <h2 id ="heading3">codeHive Class Of 2021 </h2>
 
 <form id="search-form" action="{% url 'student:search-student'%}">
@@ -17,6 +17,7 @@
 {%if results%}
 <h5 class="results">Found {{results}} Student</h5>
 {%endif%}
+
 
   <div class="row mb-5 ml-2 mr-2"  id="row-student">
     {%for student in students %}
@@ -43,8 +44,26 @@
     </div>
     {%endfor%}
   </div>
+
+  <div class="pagination">
+    <span class="step-links">
+        {% if students.has_previous %}
+            <a id="previous" class="btn btn-outline-dark mb-2 " href="?page=1">First Page</a>
+            <a id="previous" class="btn btn-outline-dark mb-2 " href="?page={{ students.previous_page_number }}"><i class="fas fa-backward"></i>Previous</a>
+        {% endif %}
+  
+  
+        {% if students.has_next %}
+            <a  id="last_page" class="btn btn-outline-dark mb-2" href="?page={{ students.next_page_number }}"><i class="fas fa-forward"></i>Next</a>
+            <a id="last_page" class="btn btn-outline-dark mb-2 ml-10" href="?page={{ students.paginator.num_pages }}">Last Page</a>
+        {% endif %}
+    </span>
+  </div>
+
   <footer class="copyright">
     Copyright &copy;2021 AkiraChix. All rights reserved.
 </footer>
-
+</section>
 {%endblock%}
+
+

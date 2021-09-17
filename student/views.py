@@ -6,6 +6,8 @@ from course.models import Course,CourseSyllabus
 from django.views.generic.list import ListView
 from django.db.models import Q
 
+from django.core.paginator import Paginator
+
 
 
 # Create your views here.
@@ -23,8 +25,22 @@ def register_student(request):
     return render(request,"register_student.html",{"form":form})
 
 def student_list(request):
-    students=Student.objects.all()
+    student_list=Student.objects.all()
+    paginator = Paginator(student_list, 8) 
+
+    page = request.GET.get('page')
+    students = paginator.get_page(page)
+
     return render (request,'student_list.html',{'students':students})
+
+
+
+
+
+
+
+
+
 
 
 def student_courses(request):
@@ -68,3 +84,4 @@ def search_student(request):
         return render (request,'student_list.html',{'students':students,'message':message})
 
     return render (request,'student_list.html',{'students':students,'results':results})
+
