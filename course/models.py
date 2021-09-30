@@ -12,14 +12,11 @@ class Course(models.Model):
     def __str__(self):
         return self.course_name
 
-# class Topic(models.Model):
-#     topic_name=models.TextField(max_length=30,null=True)
-#     description=models.CharField(max_length=30,null=True)
-#     duration=models.PositiveSmallIntegerField(null=True)
+    def check_course_name(self):
+        return self.course_name
 
-#     def __str__(self):
-#         return self.topic_name
-
+    def check_trainer(self):
+        return self.trainer
 
 class CourseSyllabus(models.Model):
     course=models.OneToOneField(Course,on_delete=SET_NULL,null=True)
