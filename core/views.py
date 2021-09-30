@@ -20,3 +20,8 @@ def kk(request):
     event=AddEvent.objects.count()
     data={'students':student,'trainers':trainer,'courses':course,'events':event}
     return render (request,"core/kk.html",data)
+
+def kk(request):
+
+    return render (request,"core/nav.html")
+

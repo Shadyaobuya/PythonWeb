@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 import django_heroku
-
+from django.urls import reverse
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -39,6 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
+
+
     'phonenumber_field',
     'bootstrap_datepicker_plus',
     'bootstrap4',
@@ -91,13 +98,15 @@ BOOTSTRAP4 = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'SchoolSystem',
-        'USER': 'Shadya',
-        'PASSWORD': 'Shadya$$04',
+        'NAME': 'school_management',
+        'USER': 'postgres',
+        'PASSWORD': 'gard',
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
+
+
 
 
 # Password validation
@@ -141,14 +150,36 @@ STATIC_URL = '/static/'
 MEDIA_URL='/media/'
 
 STATICFILES_DIRS=[
-    os.path.join(BASE_DIR,'static')
+    os.path.join(BASE_DIR,'student/static')
 ]
 
 MEDIA_ROOT=os.path.join(BASE_DIR,'media/')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+} 
+SITE_ID = 2
+
+ACCOUNT_LOGOUT_REDIRECT_URL ='/accounts/login/'
+LOGIN_REDIRECT_URL ='/'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend'
+]
 django_heroku.settings(locals())

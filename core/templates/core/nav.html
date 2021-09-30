@@ -1,0 +1,17 @@
+{%extends "core/layout.html"%}
+
+{%block body%}
+<div class="main-menu">
+    <ul style="list-style-type: none;">
+            <li class="menu-item"><i id="li" class="fa fa-home" style="color: blanchedalmond;"></i><a href="{%url 'core:home-page'%}" style="color: blanchedalmond;">HOME</a></li>
+            <li class="menu-item"><i class="fa fa-graduation-cap" style="color: blanchedalmond;"></i><a href="{%url 'student:student-list'%}" style="color: blanchedalmond;">STUDENT</a></li>
+            <li class="menu-item"><i class="fa fa-book" style="color: blanchedalmond;"></i><a href="{%url 'course:course_list'%}" style="color: blanchedalmond;">COURSES</a></li>
+            <li class="menu-item"><i class="fa fa-child" style="color: blanchedalmond;"></i><a href="{%url 'trainer:trainer-list'%}" style="color: blanchedalmond;">TRAINER</a></li>
+            <li class="menu-item"><i class="fa fa-calendar" style="color: blanchedalmond;"></i><a href="{%url 'event:calendar'%}" style="color: blanchedalmond;">EVENT</a></li>
+    </ul>
+ </div>
+
+ <footer class="copyright">
+    Copyright &copy;2021 AkiraChix. All rights reserved.
+</footer>
+  {%endblock%}

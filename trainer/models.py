@@ -24,3 +24,12 @@ class Trainer(models.Model):
     )
     gender = models.CharField(max_length=11,choices=GENDER,null=True,default="other")
 
+    def __str__(self):
+        return self.first_name
+
+    def full_name(self):
+        return f'{self.first_name} {self.last_name}'
+
+    def course_taught(self):
+        return f'{self.course_name}'
+
