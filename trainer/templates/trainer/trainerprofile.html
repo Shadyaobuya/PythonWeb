@@ -11,7 +11,7 @@
         {%else%}
         <img src="/static/images/user.png">
         {%endif%}
-        
+
         <div class="card-body">
           <a id="edit" href="{%url 'trainer:edit-trainer' id=trainer.id%}">
               <i  class="fas fa-pen"></i>
@@ -21,14 +21,14 @@
           <hr>
       <p class="card-text">{{trainer.course_name}}</p>
       <hr>
-      <p>{{trainer.bio}}</p>
+      <!-- <p>{{trainer.bio}}</p> -->
       <hr>
         <i id="contact" class="fas fa-envelope"></i> {{trainer.email}}<br>
         <i id="contact" class="fas fa-phone-alt"></i>{{trainer.phone_number}}<br>
 
       </p>
 
-     <p> 
+     <p>
       {%if trainer.image%}
        <a id="download_resume" href=" {{trainer.resume.url}}" download="{{trainer.resume.url}}">Download Resume</a></p>
       {%endif%}
@@ -36,7 +36,7 @@
       </div>
   </a>
     </div>
-   
+
   </div>
 
   <footer class="copyright">

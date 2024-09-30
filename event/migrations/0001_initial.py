@@ -4,23 +4,29 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='AddEvent',
+            name="AddEvent",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('event_name', models.CharField(max_length=30, null=True)),
-                ('venue', models.CharField(max_length=30, null=True)),
-                ('description', models.TextField(null=True)),
-                ('start_time', models.DateTimeField(null=True)),
-                ('end_time', models.DateTimeField(null=True)),
-                ('link', models.CharField(max_length=50, null=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("event_name", models.CharField(max_length=30, null=True)),
+                ("venue", models.CharField(max_length=30, null=True)),
+                ("description", models.TextField(null=True)),
+                ("start_time", models.DateTimeField(null=True)),
+                ("end_time", models.DateTimeField(null=True)),
+                ("link", models.CharField(max_length=50, null=True)),
             ],
         ),
     ]

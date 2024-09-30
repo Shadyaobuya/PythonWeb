@@ -7,11 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        
+
 body{
     letter-spacing: 2px;
-    background-color: white;
-    background-image: url("/static/images/background.jpeg");
+    background-color: rgb(110, 106, 106);
+    background-image: url("/media/images/bg2.Vector");
+    /* background-image: url("/staticfiles/images/bg-image-bulb.jpeg"); */
+
     background-size: cover;
 
 
@@ -21,26 +23,30 @@ body{
  position: fixed;
  right: 0;
  top: 10%;
- width: 60%; 
+ width: 60%;
  height: 80vh;
  z-index: 5;
 }
  .content {
  position: fixed;
- bottom: 34;
- top: 12%;
+ bottom: 38;
+ /* top: 9%; */
  background: rgba(0, 0, 0, 0.8);
  color: #f1f1f1;
  width: 40%;
- height: 80vh;
- padding: 20px;
+ height: 100vh;
+ padding: 2px;
  text-align: center;
+ float: left;
 
+ }
+ #home-content{
+    float: right;
  }
  #corenav{
      background-color: black;
      color: white;
-     height: 12vh;
+     height: 8vh;
  }
  .value{
      background-color: #00000050;
@@ -69,9 +75,9 @@ body{
  .card-text{
      margin-top: 20%;
      color: white;
-     
+
  }
- 
+
  a{
      text-decoration: none;
  }
@@ -87,7 +93,7 @@ body{
     bottom: 0%;
     position: fixed;
     padding: 2%;
-    
+
 }
 .values{
     color: white;
@@ -127,12 +133,12 @@ body{
          background-color:rgb(165, 142, 99);
          cursor: pointer;
       }
-   
+
       .main-menu .menu-item .fa{
          font-size: 30px;
          width: 40px;
-         
-        
+
+
          color: gray;
       }
       ::-webkit-scrollbar{

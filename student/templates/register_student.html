@@ -1,9 +1,9 @@
 {%extends "layout.html"%}
 {%block body%}
-{% load bootstrap4 %}       
-{% bootstrap_css %}         
-{% bootstrap_javascript jquery='full' %}  
-{{ form.media }}  
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{{ form.media }}
 
 <section id="register">
 
@@ -25,15 +25,15 @@
             {% endfor %}
 
             <button type="submit" id="submit_form">Submit</button>
-           
+
         </form>
-   
-        
+
+
         <footer class="copyright">
             Copyright &copy;2021 AkiraChix. All rights reserved.
         </footer>
-        
-        
+
+
     </section>
 {% endblock %}
 </body>

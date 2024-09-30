@@ -1,11 +1,11 @@
 {%extends 'layout.html'%}
-          
+
 
 {%block body%}
 
 <h1> <a id="link-back" href="{%url 'student:student-list'%}"><i class="fas fa-arrow-left"></i></a> {{id.first_name}} {{id.last_name}}'s Profile</h1>
 <div class="row mb-5 ml-2 mr-2"  id="row-student">
-    
+
     <div class="col-sm-3 mb-4" id="card-column">
       <div class="card" id="profile-details">
         {%if id.image%}
@@ -36,13 +36,13 @@
         <i id="contact" class="fas fa-envelope"></i> {{id.email}}<br>
         <i id="contact"class="fas fa-phone-alt"></i>{{id.phone_number}}<br>
       </p>
-     
+
 
         </div>
       </div>
   </a>
     </div>
-   
+
   </div>
 
 {%endblock%}

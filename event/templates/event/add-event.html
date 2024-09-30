@@ -1,32 +1,32 @@
 {%extends 'event/layout.html'%}
-          
+
 
 {%block body%}
-{% load bootstrap4 %}       
-{% bootstrap_css %}         
-{% bootstrap_javascript jquery='full' %}  
-{{ form.media }}  
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+{{ form.media }}
 
 
 <section id="add-event">
   <center><img src="/static/images/events.png"></center>
 <form  method="POST">
     {%csrf_token%}
-    
+
    <div id="event-form">
     <center><h2 id="heading">Add An Event</h2></center>
     <hr>
     <div class="form-group">
         {{ form.event_name }}
-        
+
     </div>
-    
+
       <div class="form-group ">
         {{ form.venue }}
-      
+
     </div>
     <div class="form-group">
-      {{ form.description }} 
+      {{ form.description }}
      </div>
      <div class="form-group">
         {{ form.link }}
@@ -34,12 +34,12 @@
 
     <div class="form-row">
       <div class="form-group col-md-6">
-        {{ form.start_time}} 
+        {{ form.start_time}}
 
       </div>
 
       <div class="form-group col-md-6">
-      
+
         {{ form.end_time}}
       </div>
     </div>
