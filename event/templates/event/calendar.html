@@ -1,5 +1,5 @@
 {%extends 'event/layout.html'%}
-          
+
 
 {%block body%}
 <section id="calendar">
@@ -13,12 +13,12 @@
       <a class="btn btn-outline-dark left" href="{% url 'event:calendar' %}?{{ prev_month }}"> Previous Month </a>
       <a class="btn btn-outline-info addEvent" href="{%url 'event:add-event'%}">Schedule Event</a>
       <a class="btn btn-outline-dark right" href="{% url 'event:calendar' %}?{{ next_month }}"> Next Month </a>
-   
+
     </div>
     {{ calendar }}
- 
+
     <footer class="copyright">
       Copyright &copy;2021 AkiraChix. All rights reserved.
   </footer>
 </section>
-{%endblock%} 
+{%endblock%}

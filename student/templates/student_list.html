@@ -1,5 +1,5 @@
 {%extends 'layout.html'%}
-          
+
 
 {%block body%}
 <section id="students-list">
@@ -35,7 +35,7 @@
           <h5 class="card-title">{{student.first_name}} {{student.last_name}}</h5>
           <h6 class="card-title">{{student.get_nationality_display}}</h5>
             <a id="profile-link" href="{%url 'student:student-profile' student.id%}">View Profile</a>
-  
+
           <hr>
       </p>
         </div>
@@ -51,8 +51,8 @@
             <a id="previous" class="btn btn-outline-dark mb-2 " href="?page=1">First Page</a>
             <a id="previous" class="btn btn-outline-dark mb-2 " href="?page={{ students.previous_page_number }}"><i class="fas fa-backward"></i>Previous</a>
         {% endif %}
-  
-  
+
+
         {% if students.has_next %}
             <a  id="last_page" class="btn btn-outline-dark mb-2" href="?page={{ students.next_page_number }}"><i class="fas fa-forward"></i>Next</a>
             <a id="last_page" class="btn btn-outline-dark mb-2 ml-10" href="?page={{ students.paginator.num_pages }}">Last Page</a>

@@ -4,23 +4,26 @@ from trainer.models import Trainer
 from course.models import Course
 from event.models import AddEvent
 
+
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Student
-        fields=('first_name','last_name','age')
+        model = Student
+        fields = ("first_name", "last_name", "age")
+
 
 class TrainerSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Trainer
-        fields=('first_name','last_name','bio')
+        model = Trainer
+        fields = ("first_name", "last_name")
 
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
-        model=AddEvent
-        fields=('event_name','venue','description')
+        model = AddEvent
+        fields = ("event_name", "venue", "description")
+
 
 class CourseSerializer(serializers.ModelSerializer):
     class Meta:
-        model=Course
-        fields=('course_name','trainer','description')
+        model = Course
+        fields = ("course_name", "trainer", "description")

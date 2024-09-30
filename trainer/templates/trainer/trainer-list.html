@@ -1,8 +1,8 @@
 {%extends 'trainer/layout.html'%}
 {%block body%}
-{% load bootstrap4 %}       
-        
-{% bootstrap_javascript jquery='full' %} 
+{% load bootstrap4 %}
+
+{% bootstrap_javascript jquery='full' %}
 <section id="trainer-list">
 <center><h1 style="color: purple;">codeHive Trainers 2021</h1></center>
 <center><img src="/static/images/trainer.png"></center>
@@ -25,19 +25,19 @@
           <h5 class="card-title">{{trainer.first_name}} {{trainer.last_name}}</h5>
           <h6 class="card-title">{{trainer.company_name}}</h5>
           <hr>
-      <p class="card-text">{{trainer.bio}}</p>
+      <!-- <p class="card-text">{{trainer.bio}}</p> -->
       <hr>
 
       <p><a id="download_resume" href="{%url 'trainer:trainer-profile' trainer.id%}">View Profile</a></p>
-      
-        </div>  
+
+        </div>
       </div>
     </div>
-    
+
     {%endfor%}
 
   </div>
-  
+
   <footer class="copyright">
     Copyright &copy;2021 AkiraChix. All rights reserved.
 </footer>
